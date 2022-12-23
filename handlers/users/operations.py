@@ -7,10 +7,11 @@ async def command_start(message: types.Message):
     current_commands[message.from_user.id] = "sum"
     await message.answer("Ввидите числа для суммирования")
 
+
 @dp.message_handler(text="/sub")
 async def command_start(message: types.Message):
-    current_commands[message.from_user.id] = "sum"
-    await message.answer("Ввидите числа для суммирования")
+    current_commands[message.from_user.id] = "sub"
+    await message.answer("Ввидите два числа для вычитания второго из первого")
 
 
 @dp.message_handler(text="/mul")
@@ -21,5 +22,11 @@ async def command_start(message: types.Message):
 
 @dp.message_handler(text="/div")
 async def command_start(message: types.Message):
-    current_commands[message.from_user.id] = "mul"
-    await message.answer("Ввидите числа для умножения")
+    current_commands[message.from_user.id] = "div"
+    await message.answer("Ввидите два для деления первого вторым")
+
+
+@dp.message_handler(text="/evl")
+async def command_start(message: types.Message):
+    current_commands[message.from_user.id] = "evl"
+    await message.answer("Ввидите выражение для подсчета")

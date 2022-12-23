@@ -19,5 +19,29 @@ async def command_start(message: types.Message):
                 current_commands.pop(message.from_user.id)
             except Exception as e:
                 await message.answer(error_text)
+        elif current_commands[message.from_user.id] == "sub":
+            try:
+                inp = list(map(float, message.text.split()))
+                await message.answer(str(inp[0] - inp[1]))
+                current_commands.pop(message.from_user.id)
+            except Exception as e:
+                await message.answer(error_text)
+        elif current_commands[message.from_user.id] == "div":
+            try:
+                inp = list(map(float, message.text.split()))
+                await message.answer(str(inp[0] / inp[1]))
+                current_commands.pop(message.from_user.id)
+            except ZeroDivisionError:
+                await message.answer("Деление на ноль")
+            except Exception as e:
+                await message.answer(error_text)
+        elif current_commands[message.from_user.id] == "evl":
+            try:
+                await message.answer(eval(message.text))
+                current_commands.pop(message.from_user.id)
+            except ZeroDivisionError:
+                await message.answer("Деление на ноль")
+            except Exception as e:
+                await message.answer("Некорректное выражение")
     else:
         await message.answer("Не выбрано никакой командыф")
