@@ -4,6 +4,16 @@ import wolframalpha
 import wikipedia
 import pymorphy2
 
+
+from aiogram import Bot, Dispatcher, types
+from aiogram.utils import executor
+
+
+
+
+
+
+
 reply_keyboard = [['/set_timer', '/perevod', '/info', '/word'],
                   ['/kartinka', '/urawn', '/help']]
 markup = ReplyKeyboardMarkup(reply_keyboard, one_time_keyboard=False)
@@ -252,7 +262,6 @@ def main():
 
     # Регистрируем обработчик в диспетчере.
     dp.add_handler(text_handler)
-    print(1)
 
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(CommandHandler("help", help))
