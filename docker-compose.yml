@@ -1,0 +1,6 @@
+version: '2'
+services:
+  bot:
+    build: .
+    image: gsfatakhov/missingsemestr_bot:latest
+
