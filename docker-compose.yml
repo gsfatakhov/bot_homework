@@ -1,0 +1,7 @@
+version: '2.13'
+services:
+  bot:
+    platform: linux/amd64
+    build: .
+    image: gsfatakhov/missingsemestr_bot:latest
+
